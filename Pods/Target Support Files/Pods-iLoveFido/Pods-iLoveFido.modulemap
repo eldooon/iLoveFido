@@ -1,0 +1,6 @@
+framework module Pods_iLoveFido {
+  umbrella header "Pods-iLoveFido-umbrella.h"
+
+  export *
+  module * { export * }
+}
