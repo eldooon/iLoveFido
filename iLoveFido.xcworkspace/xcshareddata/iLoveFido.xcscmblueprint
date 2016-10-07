@@ -1,16 +1,16 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "64B8D91FC1ACD440A9DD28A868934C3CC8263F80",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "76F2E7D16F5CB158DE9209156CF79D1C94B2445B",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "5D37FAFD9876C55A8A12F313CBEA306F502A8139" : 9223372036854775807,
-    "64B8D91FC1ACD440A9DD28A868934C3CC8263F80" : 9223372036854775807
+    "76F2E7D16F5CB158DE9209156CF79D1C94B2445B" : 9223372036854775807,
+    "5D37FAFD9876C55A8A12F313CBEA306F502A8139" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "02467D6A-39DA-448F-9C4F-DFBC70E09B03",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "5D37FAFD9876C55A8A12F313CBEA306F502A8139" : "iLoveFido\/iLoveFido\/",
-    "64B8D91FC1ACD440A9DD28A868934C3CC8263F80" : "iLoveFido\/"
+    "76F2E7D16F5CB158DE9209156CF79D1C94B2445B" : "iLoveFido\/",
+    "5D37FAFD9876C55A8A12F313CBEA306F502A8139" : "iLoveFido\/iLoveFido\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "iLoveFido",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -24,7 +24,7 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:eldooon\/iLoveFidov1.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "64B8D91FC1ACD440A9DD28A868934C3CC8263F80"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "76F2E7D16F5CB158DE9209156CF79D1C94B2445B"
     }
   ]
 }
