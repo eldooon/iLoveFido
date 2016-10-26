@@ -20,7 +20,7 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
 
         // Do any additional setup after loading the view.
         
-        searchResultTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        searchResultTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         searchResultTableView.delegate = self
         searchResultTableView.dataSource = self
         
@@ -28,7 +28,7 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
         createLayout()
         data.generateData()
         
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         
         
     }
@@ -45,7 +45,7 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
             var nonPlural : String {
                 
                 if self.search.characters.last == Character.init("s") {
-                    return search.substringToIndex(search.endIndex.predecessor())
+                    return search.substring(to: search.characters.index(before: search.endIndex))
                 }
                 
                 return search
@@ -53,7 +53,7 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
             
             for food in data.foodData {
                 
-                if food.foodName.lowercaseString.containsString(nonPlural.lowercaseString) {
+                if food.foodName.lowercased().contains(nonPlural.lowercased()) {
                     filteredDatabase.append(food)
                 }
             }
@@ -69,56 +69,56 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
         
         navigationItem.titleView = UIImageView(image: UIImage(named: "paw"))
         let navigationBar = navigationController!.navigationBar
-        navigationBar.tintColor = UIColor.blackColor()
+        navigationBar.tintColor = UIColor.black
         
         
         view.addSubview(searchResultLabel)
         searchResultLabel.text = "Results for: '\(search)'"
         searchResultLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
-        searchResultLabel.snp_makeConstraints { (make) in
-            make.centerX.equalTo(view.snp_centerX)
-            make.top.equalTo(view.snp_top).offset(100)
+        searchResultLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(view.snp.centerX)
+            make.top.equalTo(view.snp.top).offset(100)
         }
         
         view.addSubview(searchResultTableView)
-        searchResultTableView.snp_makeConstraints { (make) in
-            make.top.equalTo(searchResultLabel.snp_bottom).offset(20)
-            make.centerX.equalTo(view.snp_centerX)
-            make.width.equalTo(view.snp_width)
-            make.bottom.equalTo(view.snp_bottom)
+        searchResultTableView.snp.makeConstraints { (make) in
+            make.top.equalTo(searchResultLabel.snp.bottom).offset(20)
+            make.centerX.equalTo(view.snp.centerX)
+            make.width.equalTo(view.snp.width)
+            make.bottom.equalTo(view.snp.bottom)
         }
     }
     
-    func tableView(tableView:UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView:UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return filteredDatabase.count
     }
     
-    func numberOfSectionsInTableView(tableView:UITableView) -> Int {
+    func numberOfSections(in tableView:UITableView) -> Int {
         
         return 1
     }
     
     
-    func tableView(tableView:UITableView, cellForRowAtIndexPath indexPath:NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView:UITableView, cellForRowAt indexPath:IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = filteredDatabase[indexPath.row].foodName
+        cell.textLabel?.text = filteredDatabase[(indexPath as NSIndexPath).row].foodName
         
         return cell
         
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let foodVC = FoodDetailViewController()
-        foodVC.foodNameLabel.text = filteredDatabase[indexPath.row].foodName
-        foodVC.foodImageView.image = filteredDatabase[indexPath.row].foodImage
-        foodVC.foodStatus = filteredDatabase[indexPath.row].foodStatus
-        foodVC.foodRecommend = filteredDatabase[indexPath.row].foodRecommended
-        foodVC.foodSuggestion = filteredDatabase[indexPath.row].foodSuggestion
-        foodVC.foodDescriptionTextView.text = filteredDatabase[indexPath.row].foodDescription
+        foodVC.foodNameLabel.text = filteredDatabase[(indexPath as NSIndexPath).row].foodName
+        foodVC.foodImageView.image = filteredDatabase[(indexPath as NSIndexPath).row].foodImage
+        foodVC.foodStatus = filteredDatabase[(indexPath as NSIndexPath).row].foodStatus
+        foodVC.foodRecommend = filteredDatabase[(indexPath as NSIndexPath).row].foodRecommended
+        foodVC.foodSuggestion = filteredDatabase[(indexPath as NSIndexPath).row].foodSuggestion
+        foodVC.foodDescriptionTextView.text = filteredDatabase[(indexPath as NSIndexPath).row].foodDescription
         
         
         self.navigationController?.pushViewController(foodVC, animated: true)

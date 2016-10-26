@@ -6,6 +6,6 @@ target 'iLoveFido' do
   use_frameworks!
 
   # Pods for iLoveFido
-  pod 'SnapKit'
+  pod 'SnapKit', '~> 3.0.2'
 
 end

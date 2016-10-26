@@ -40,7 +40,7 @@ class FoodDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         createLayout()
     }
 
@@ -49,7 +49,7 @@ class FoodDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
     }
     
@@ -57,46 +57,46 @@ class FoodDetailViewController: UIViewController {
         
         navigationItem.titleView = UIImageView(image: UIImage(named: "paw"))
         let navigationBar = navigationController!.navigationBar
-        navigationBar.tintColor = UIColor.blackColor()
+        navigationBar.tintColor = UIColor.black
         
         view.addSubview(scrollView)
-        scrollView.scrollEnabled = true
+        scrollView.isScrollEnabled = true
         scrollView.showsVerticalScrollIndicator = true
-        scrollView.userInteractionEnabled = true
-        scrollView.backgroundColor = UIColor.whiteColor()
-        scrollView.snp_makeConstraints { (make) in
-            make.top.equalTo(view.snp_top)
-            make.left.equalTo(view.snp_left)
-            make.right.equalTo(view.snp_right)
-            make.bottom.equalTo(view.snp_bottom).offset(-100)
+        scrollView.isUserInteractionEnabled = true
+        scrollView.backgroundColor = UIColor.white
+        scrollView.snp.makeConstraints { (make) in
+            make.top.equalTo(view.snp.top)
+            make.left.equalTo(view.snp.left)
+            make.right.equalTo(view.snp.right)
+            make.bottom.equalTo(view.snp.bottom).offset(-100)
         }
         
         
         scrollView.addSubview(foodImageView)
-        foodImageView.snp_makeConstraints { (make) in
-            make.top.equalTo(scrollView.snp_top)
-            make.left.equalTo(view.snp_left)
-            make.right.equalTo(view.snp_right)
-            make.height.equalTo(view.snp_height).dividedBy(2.5)
+        foodImageView.snp.makeConstraints { (make) in
+            make.top.equalTo(scrollView.snp.top)
+            make.left.equalTo(view.snp.left)
+            make.right.equalTo(view.snp.right)
+            make.height.equalTo(view.snp.height).dividedBy(2.5)
         }
         
         scrollView.addSubview(darkenView)
-        darkenView.backgroundColor = UIColor.blackColor()
+        darkenView.backgroundColor = UIColor.black
         darkenView.layer.opacity = 0.5
-        darkenView.snp_makeConstraints { (make) in
-            make.centerX.equalTo(foodImageView.snp_centerX)
-            make.centerY.equalTo(foodImageView.snp_centerY)
-            make.width.equalTo(foodImageView.snp_width)
-            make.height.equalTo(foodImageView.snp_height)
+        darkenView.snp.makeConstraints { (make) in
+            make.centerX.equalTo(foodImageView.snp.centerX)
+            make.centerY.equalTo(foodImageView.snp.centerY)
+            make.width.equalTo(foodImageView.snp.width)
+            make.height.equalTo(foodImageView.snp.height)
         }
         
         scrollView.addSubview(foodNameLabel)
-        foodNameLabel.textAlignment = NSTextAlignment.Center
-        foodNameLabel.textColor = UIColor.whiteColor()
+        foodNameLabel.textAlignment = NSTextAlignment.center
+        foodNameLabel.textColor = UIColor.white
         foodNameLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 32)
-        foodNameLabel.snp_makeConstraints { (make) in
-            make.centerX.equalTo(view.snp_centerX)
-            make.top.equalTo(foodImageView.snp_centerY).offset(20)
+        foodNameLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(view.snp.centerX)
+            make.top.equalTo(foodImageView.snp.centerY).offset(20)
         }
         
         view.addSubview(foodStatusImageView)
@@ -111,149 +111,149 @@ class FoodDetailViewController: UIViewController {
         else {
             foodStatusImageView.image = UIImage(named: "bad")
         }
-        foodStatusImageView.snp_makeConstraints { (make) in
-            make.bottom.equalTo(foodNameLabel.snp_top).offset(-10)
-            make.centerX.equalTo(foodNameLabel.snp_centerX)
-            make.width.equalTo(foodImageView.snp_width).dividedBy(5)
-            make.height.equalTo(foodImageView.snp_width).dividedBy(5)
+        foodStatusImageView.snp.makeConstraints { (make) in
+            make.bottom.equalTo(foodNameLabel.snp.top).offset(-10)
+            make.centerX.equalTo(foodNameLabel.snp.centerX)
+            make.width.equalTo(foodImageView.snp.width).dividedBy(5)
+            make.height.equalTo(foodImageView.snp.width).dividedBy(5)
         }
     
         
         view.addSubview(boneImageView3)
         boneImageView3.image = UIImage(named: "bone")
-        boneImageView3.snp_makeConstraints { (make) in
-            make.top.equalTo(foodNameLabel.snp_bottom).offset(10)
-            make.centerX.equalTo(foodNameLabel.snp_centerX)
-            make.width.equalTo(view.snp_width).dividedBy(18)
-            make.height.equalTo(view.snp_width).dividedBy(18)
+        boneImageView3.snp.makeConstraints { (make) in
+            make.top.equalTo(foodNameLabel.snp.bottom).offset(10)
+            make.centerX.equalTo(foodNameLabel.snp.centerX)
+            make.width.equalTo(view.snp.width).dividedBy(18)
+            make.height.equalTo(view.snp.width).dividedBy(18)
         }
         
         view.addSubview(boneImageView2)
         boneImageView2.image = UIImage(named: "bone")
-        boneImageView2.snp_makeConstraints { (make) in
-            make.top.equalTo(boneImageView3.snp_top)
-            make.right.equalTo(boneImageView3.snp_left).offset(1)
-            make.width.equalTo(boneImageView3.snp_width)
-            make.height.equalTo(boneImageView3.snp_width)
+        boneImageView2.snp.makeConstraints { (make) in
+            make.top.equalTo(boneImageView3.snp.top)
+            make.right.equalTo(boneImageView3.snp.left).offset(1)
+            make.width.equalTo(boneImageView3.snp.width)
+            make.height.equalTo(boneImageView3.snp.width)
         }
         
         view.addSubview(boneImageView1)
         boneImageView1.image = UIImage(named: "bone")
-        boneImageView1.snp_makeConstraints { (make) in
-            make.top.equalTo(boneImageView2.snp_top)
-            make.right.equalTo(boneImageView2.snp_left).offset(1)
-            make.width.equalTo(boneImageView2.snp_width)
-            make.height.equalTo(boneImageView2.snp_width)
+        boneImageView1.snp.makeConstraints { (make) in
+            make.top.equalTo(boneImageView2.snp.top)
+            make.right.equalTo(boneImageView2.snp.left).offset(1)
+            make.width.equalTo(boneImageView2.snp.width)
+            make.height.equalTo(boneImageView2.snp.width)
         }
         
         view.addSubview(boneImageView4)
         boneImageView4.image = UIImage(named: "bone")
-        boneImageView4.snp_makeConstraints { (make) in
-            make.top.equalTo(boneImageView3.snp_top)
-            make.left.equalTo(boneImageView3.snp_right).offset(1)
-            make.width.equalTo(boneImageView3.snp_width)
-            make.height.equalTo(boneImageView3.snp_width)
+        boneImageView4.snp.makeConstraints { (make) in
+            make.top.equalTo(boneImageView3.snp.top)
+            make.left.equalTo(boneImageView3.snp.right).offset(1)
+            make.width.equalTo(boneImageView3.snp.width)
+            make.height.equalTo(boneImageView3.snp.width)
         }
         
         view.addSubview(boneImageView5)
         boneImageView5.image = UIImage(named: "bone")
-        boneImageView5.snp_makeConstraints { (make) in
-            make.top.equalTo(boneImageView4.snp_top)
-            make.left.equalTo(boneImageView4.snp_right).offset(1)
-            make.width.equalTo(boneImageView4.snp_width)
-            make.height.equalTo(boneImageView4.snp_width)
+        boneImageView5.snp.makeConstraints { (make) in
+            make.top.equalTo(boneImageView4.snp.top)
+            make.left.equalTo(boneImageView4.snp.right).offset(1)
+            make.width.equalTo(boneImageView4.snp.width)
+            make.height.equalTo(boneImageView4.snp.width)
         }
         
         view.addSubview(informationLabel)
         informationLabel.text = "Information"
         informationLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
-        informationLabel.snp_makeConstraints { (make) in
-            make.centerX.equalTo(view.snp_centerX)
-            make.top.equalTo(foodImageView.snp_bottom).offset(20)
+        informationLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(view.snp.centerX)
+            make.top.equalTo(foodImageView.snp.bottom).offset(20)
         }
         
         view.addSubview(seperatorLineImageView)
-        seperatorLineImageView.backgroundColor = UIColor.grayColor()
-        seperatorLineImageView.snp_makeConstraints { (make) in
-            make.top.equalTo(informationLabel.snp_bottom).offset(10)
-            make.centerX.equalTo(view.snp_centerX)
+        seperatorLineImageView.backgroundColor = UIColor.gray
+        seperatorLineImageView.snp.makeConstraints { (make) in
+            make.top.equalTo(informationLabel.snp.bottom).offset(10)
+            make.centerX.equalTo(view.snp.centerX)
             make.height.equalTo(1)
-            make.width.equalTo(view.snp_width).offset(-100)
+            make.width.equalTo(view.snp.width).offset(-100)
         }
         
         view.addSubview(safeLabel)
         safeLabel.text = "Is it Safe:"
         safeLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
-        safeLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(seperatorLineImageView.snp_bottom).offset(20)
-            make.left.equalTo(view.snp_left).offset(20)
+        safeLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(seperatorLineImageView.snp.bottom).offset(20)
+            make.left.equalTo(view.snp.left).offset(20)
         }
         
         view.addSubview(safeStatusLabel)
         safeStatusLabel.text = "\(foodStatus)"
         safeStatusLabel.font = UIFont(name: "HelveticaNeue", size: 14)
         if foodStatus == "Yes" {
-            safeStatusLabel.textColor = UIColor.greenColor()
+            safeStatusLabel.textColor = UIColor.green
         }
         else if foodStatus == "Warning" {
-            safeStatusLabel.textColor = UIColor.orangeColor()
+            safeStatusLabel.textColor = UIColor.orange
         }
         else {
-            safeStatusLabel.textColor = UIColor.redColor()
+            safeStatusLabel.textColor = UIColor.red
         }
-        safeStatusLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(safeLabel.snp_top)
-            make.left.equalTo(safeLabel.snp_right).offset(5)
+        safeStatusLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(safeLabel.snp.top)
+            make.left.equalTo(safeLabel.snp.right).offset(5)
         }
         
         view.addSubview(recommendedLabel)
         recommendedLabel.text = "Recommended:"
         recommendedLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
-        recommendedLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(safeLabel.snp_bottom).offset(5)
-            make.left.equalTo(view.snp_left).offset(20)
+        recommendedLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(safeLabel.snp.bottom).offset(5)
+            make.left.equalTo(view.snp.left).offset(20)
         }
         
         view.addSubview(recommendedStatusLabel)
         recommendedStatusLabel.text = "\(foodRecommend)"
         recommendedStatusLabel.font = UIFont(name: "HelveticaNeue", size: 14)
-        recommendedStatusLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(recommendedLabel.snp_top)
-            make.left.equalTo(recommendedLabel.snp_right).offset(5)
+        recommendedStatusLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(recommendedLabel.snp.top)
+            make.left.equalTo(recommendedLabel.snp.right).offset(5)
         }
         
         view.addSubview(suggestionLabel)
         suggestionLabel.text = "Suggestion:"
         suggestionLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
-        suggestionLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(recommendedLabel.snp_bottom).offset(5)
-            make.left.equalTo(recommendedLabel.snp_left)
+        suggestionLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(recommendedLabel.snp.bottom).offset(5)
+            make.left.equalTo(recommendedLabel.snp.left)
         }
         
         view.addSubview(suggestionStatusLabel)
         suggestionStatusLabel.text = "\(foodSuggestion)"
         suggestionStatusLabel.font = UIFont(name: "HelveticaNeue", size: 14)
-        suggestionStatusLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(suggestionLabel.snp_top)
-            make.left.equalTo(suggestionLabel.snp_right).offset(5)
+        suggestionStatusLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(suggestionLabel.snp.top)
+            make.left.equalTo(suggestionLabel.snp.right).offset(5)
         }
         
         view.addSubview(foodDescriptionLabel)
         foodDescriptionLabel.text = "Description:"
         foodDescriptionLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
-        foodDescriptionLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(suggestionLabel.snp_bottom).offset(5)
-            make.left.equalTo(suggestionLabel.snp_left)
+        foodDescriptionLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(suggestionLabel.snp.bottom).offset(5)
+            make.left.equalTo(suggestionLabel.snp.left)
         }
         
         view.addSubview(foodDescriptionTextView)
-        foodDescriptionTextView.editable = false
+        foodDescriptionTextView.isEditable = false
         foodDescriptionTextView.font = UIFont(name: "HelveticaNeue", size: 14)
-        foodDescriptionTextView.snp_makeConstraints { (make) in
-            make.top.equalTo(foodDescriptionLabel.snp_bottom).offset(5)
-            make.left.equalTo(foodDescriptionLabel.snp_left)
-            make.right.equalTo(view.snp_right).offset(-20)
-            make.height.equalTo(view.snp_width) //NEEDS TO BE CHANGED
+        foodDescriptionTextView.snp.makeConstraints { (make) in
+            make.top.equalTo(foodDescriptionLabel.snp.bottom).offset(5)
+            make.left.equalTo(foodDescriptionLabel.snp.left)
+            make.right.equalTo(view.snp.right).offset(-20)
+            make.height.equalTo(view.snp.width) //NEEDS TO BE CHANGED
             
         }
         
