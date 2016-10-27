@@ -16,17 +16,12 @@ class ViewController: UIViewController {
     let canMyDogEatLabel = UILabel()
     let canMyDogEatTextField = UITextField()
     let searchButton = UIButton()
-    let ref = FIRDatabase.database().reference(withPath: "FoodDatabase")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         createLayout()
         view.backgroundColor = UIColor.yellow
-        
-        ref.observe(.value, with: { snapshot in
-            print(snapshot.value)
-        })
         
     }
     

@@ -40,11 +40,10 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        dump(data)
-    }
-    
     func getFoodDatabase() {
+        
+//        let childref = ref.child(search)
+//        print("CHILD REF \(childref.key)")
         ref.observe(.value, with: { snapshot in
             var newItems: [FoodInformation] = []
             for item in snapshot.children {
@@ -56,6 +55,8 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
             self.data = newItems
             self.searchQuery()
         })
+
+        
     
     }
     
