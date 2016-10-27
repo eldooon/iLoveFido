@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FirebaseDatabase
 
 class FoodInformation: NSObject {
     
@@ -17,6 +18,7 @@ class FoodInformation: NSObject {
     var foodRecommended = String()
     var foodSuggestion = String()
     var foodDescription = String()
+    let ref: FIRDatabaseReference?
     
     init(withName Name: String, Status: String, Image: UIImage, Recommended: String, Suggestion: String, Description: String) {
         
@@ -26,8 +28,25 @@ class FoodInformation: NSObject {
         foodRecommended = Recommended
         foodSuggestion = Suggestion
         foodDescription = Description
+        ref = nil
         
         super.init()
+    }
+    
+    init(snapshot: FIRDataSnapshot) {
+        let snapshotValue = snapshot.value as! [String: AnyObject]
+        foodName = snapshotValue["Name"] as! String
+        foodStatus = snapshotValue["Status"] as! String
+        
+        let imgURL = NSURL(fileURLWithPath: snapshotValue["Image"] as! String)
+//        let imgData = NSData(contentsOf: imgURL as URL)
+//        if let image = UIImage(data: imgData as! Data) {
+//            foodImage = image
+//        }
+        foodRecommended = snapshotValue["Recommended"] as! String
+        foodSuggestion = snapshotValue["Suggestion"] as! String
+        foodDescription = snapshotValue["Description"] as! String
+        ref = snapshot.ref
     }
     
 }

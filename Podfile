@@ -7,5 +7,8 @@ target 'iLoveFido' do
 
   # Pods for iLoveFido
   pod 'SnapKit', '~> 3.0.2'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 
 end

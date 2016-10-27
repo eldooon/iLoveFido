@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class SearchResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let searchResultLabel = UILabel()
     let searchResultTableView = UITableView()
-    let data = database()
+    var data = [FoodInformation]()
     var filteredDatabase = [FoodInformation]()
     var search = String()
+    let ref = FIRDatabase.database().reference(withPath: "FoodDatabase")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +26,9 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
         searchResultTableView.delegate = self
         searchResultTableView.dataSource = self
         
-        searchQuery()
+        getFoodDatabase()
+//        searchQuery()
         createLayout()
-        data.generateData()
         
         view.backgroundColor = UIColor.white
         
@@ -36,6 +38,25 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        dump(data)
+    }
+    
+    func getFoodDatabase() {
+        ref.observe(.value, with: { snapshot in
+            var newItems: [FoodInformation] = []
+            for item in snapshot.children {
+                print("ITEM \(item)")
+                let foodItem = FoodInformation(snapshot: item as! FIRDataSnapshot)
+                newItems.append(foodItem)
+            }
+            
+            self.data = newItems
+            self.searchQuery()
+        })
+    
     }
     
     func searchQuery() {
@@ -51,7 +72,7 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
                 return search
             }
             
-            for food in data.foodData {
+            for food in data {
                 
                 if food.foodName.lowercased().contains(nonPlural.lowercased()) {
                     filteredDatabase.append(food)
@@ -61,8 +82,10 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
             
         else {
             
-            filteredDatabase = data.foodData
+            filteredDatabase = data
         }
+        
+        self.searchResultTableView.reloadData()
     }
     
     func createLayout(){

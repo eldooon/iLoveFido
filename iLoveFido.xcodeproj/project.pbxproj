@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AE260B4E68260AF8FF78303F /* Pods_iLoveFido.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B93C3052962C2784B1757643 /* Pods_iLoveFido.framework */; };
+		BE066D921DC1637E007494C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE066D911DC1637E007494C4 /* GoogleService-Info.plist */; };
 		BE4E59AA1D9C3EDE00C438B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E59A91D9C3EDE00C438B3 /* AppDelegate.swift */; };
 		BE4E59AC1D9C3EDE00C438B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E59AB1D9C3EDE00C438B3 /* ViewController.swift */; };
 		BE4E59AF1D9C3EDE00C438B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4E59AD1D9C3EDE00C438B3 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		720D7D8965B7A3184D80984E /* Pods-iLoveFido.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLoveFido.release.xcconfig"; path = "Pods/Target Support Files/Pods-iLoveFido/Pods-iLoveFido.release.xcconfig"; sourceTree = "<group>"; };
 		7709E2E52876499142F1774D /* Pods-iLoveFido.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLoveFido.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iLoveFido/Pods-iLoveFido.debug.xcconfig"; sourceTree = "<group>"; };
 		B93C3052962C2784B1757643 /* Pods_iLoveFido.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLoveFido.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE066D911DC1637E007494C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BE4E59A61D9C3EDE00C438B3 /* iLoveFido.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLoveFido.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE4E59A91D9C3EDE00C438B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE4E59AB1D9C3EDE00C438B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,6 +33,7 @@
 		BE4E59B31D9C3EDE00C438B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE4E59B61D9C3EDE00C438B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE4E59B81D9C3EDE00C438B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE76CBB41DC24FEA009B1361 /* iLoveFido.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iLoveFido.entitlements; sourceTree = "<group>"; };
 		BECAEE651D9C552F003CDC62 /* FoodDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDatabase.swift; sourceTree = "<group>"; };
 		BECAEE691D9C5B16003CDC62 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		BECAEE6B1D9C62C7003CDC62 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +89,7 @@
 		BE4E59A81D9C3EDE00C438B3 /* iLoveFido */ = {
 			isa = PBXGroup;
 			children = (
+				BE76CBB41DC24FEA009B1361 /* iLoveFido.entitlements */,
 				BE4E59A91D9C3EDE00C438B3 /* AppDelegate.swift */,
 				BE4E59AB1D9C3EDE00C438B3 /* ViewController.swift */,
 				BECAEE691D9C5B16003CDC62 /* SearchResultViewController.swift */,
@@ -95,6 +99,7 @@
 				BE4E59B31D9C3EDE00C438B3 /* Assets.xcassets */,
 				BE4E59B51D9C3EDE00C438B3 /* LaunchScreen.storyboard */,
 				BE4E59B81D9C3EDE00C438B3 /* Info.plist */,
+				BE066D911DC1637E007494C4 /* GoogleService-Info.plist */,
 				BE4E59B01D9C3EDE00C438B3 /* iLoveFido.xcdatamodeld */,
 			);
 			path = iLoveFido;
@@ -138,6 +143,11 @@
 						DevelopmentTeam = LQY7Q4QMHY;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -165,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE4E59B71D9C3EDE00C438B3 /* LaunchScreen.storyboard in Resources */,
+				BE066D921DC1637E007494C4 /* GoogleService-Info.plist in Resources */,
 				BE4E59B41D9C3EDE00C438B3 /* Assets.xcassets in Resources */,
 				BE4E59AF1D9C3EDE00C438B3 /* Main.storyboard in Resources */,
 			);
@@ -355,10 +366,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iLoveFido/iLoveFido.entitlements;
 				DEVELOPMENT_TEAM = LQY7Q4QMHY;
 				INFOPLIST_FILE = iLoveFido/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Eldon.iLoveFido;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Eldon.iLoveFido;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -371,10 +383,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iLoveFido/iLoveFido.entitlements;
 				DEVELOPMENT_TEAM = LQY7Q4QMHY;
 				INFOPLIST_FILE = iLoveFido/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Eldon.iLoveFido;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Eldon.iLoveFido;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
