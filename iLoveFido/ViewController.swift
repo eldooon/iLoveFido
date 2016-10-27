@@ -16,12 +16,14 @@ class ViewController: UIViewController {
     let canMyDogEatLabel = UILabel()
     let canMyDogEatTextField = UITextField()
     let searchButton = UIButton()
+    var shared = FoodDatabase.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         createLayout()
         view.backgroundColor = UIColor.yellow
+        shared.getFoodDatabase()
         
     }
     

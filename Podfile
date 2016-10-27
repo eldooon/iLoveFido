@@ -10,5 +10,6 @@ target 'iLoveFido' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'SDWebImage', '~>3.8'
 
 end

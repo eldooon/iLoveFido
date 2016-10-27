@@ -12,7 +12,7 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
 
     let searchResultLabel = UILabel()
     let searchResultTableView = UITableView()
-    var data = [FoodInformation]()
+    var shared = FoodDatabase.sharedInstance
     var filteredDatabase = [FoodInformation]()
     var search = String()
     let ref = FIRDatabase.database().reference(withPath: "FoodDatabase")
@@ -26,9 +26,8 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
         searchResultTableView.delegate = self
         searchResultTableView.dataSource = self
         
-        getFoodDatabase()
-//        searchQuery()
         createLayout()
+        searchQuery()
         
         view.backgroundColor = UIColor.white
         
@@ -38,26 +37,6 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func getFoodDatabase() {
-        
-//        let childref = ref.child(search)
-//        print("CHILD REF \(childref.key)")
-        ref.observe(.value, with: { snapshot in
-            var newItems: [FoodInformation] = []
-            for item in snapshot.children {
-                print("ITEM \(item)")
-                let foodItem = FoodInformation(snapshot: item as! FIRDataSnapshot)
-                newItems.append(foodItem)
-            }
-            
-            self.data = newItems
-            self.searchQuery()
-        })
-
-        
-    
     }
     
     func searchQuery() {
@@ -73,8 +52,8 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
                 return search
             }
             
-            for food in data {
-                
+            for food in shared.database {
+            
                 if food.foodName.lowercased().contains(nonPlural.lowercased()) {
                     filteredDatabase.append(food)
                 }
@@ -83,7 +62,7 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
             
         else {
             
-            filteredDatabase = data
+            filteredDatabase = shared.database
         }
         
         self.searchResultTableView.reloadData()
@@ -138,7 +117,8 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
         
         let foodVC = FoodDetailViewController()
         foodVC.foodNameLabel.text = filteredDatabase[(indexPath as NSIndexPath).row].foodName
-        foodVC.foodImageView.image = filteredDatabase[(indexPath as NSIndexPath).row].foodImage
+        let url = URL(string: filteredDatabase[(indexPath as NSIndexPath).row].foodImage)
+        foodVC.foodImageView.sd_setImage(with: url)
         foodVC.foodStatus = filteredDatabase[(indexPath as NSIndexPath).row].foodStatus
         foodVC.foodRecommend = filteredDatabase[(indexPath as NSIndexPath).row].foodRecommended
         foodVC.foodSuggestion = filteredDatabase[(indexPath as NSIndexPath).row].foodSuggestion
