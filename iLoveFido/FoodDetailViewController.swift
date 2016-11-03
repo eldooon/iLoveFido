@@ -33,6 +33,7 @@ class FoodDetailViewController: UIViewController {
     let recommendedStatusLabel = UILabel()
     let suggestionLabel = UILabel()
     let suggestionStatusLabel = UILabel()
+    let contentView = UIView()
 
 
 
@@ -58,29 +59,16 @@ class FoodDetailViewController: UIViewController {
         navigationItem.titleView = UIImageView(image: UIImage(named: "paw"))
         let navigationBar = navigationController!.navigationBar
         navigationBar.tintColor = UIColor.black
-        
-        view.addSubview(scrollView)
-        scrollView.isScrollEnabled = true
-        scrollView.showsVerticalScrollIndicator = true
-        scrollView.isUserInteractionEnabled = true
-        scrollView.backgroundColor = UIColor.white
-        scrollView.snp.makeConstraints { (make) in
-            make.top.equalTo(view.snp.top)
-            make.left.equalTo(view.snp.left)
-            make.right.equalTo(view.snp.right)
-            make.bottom.equalTo(view.snp.bottom).offset(-100)
-        }
-        
-        
-        scrollView.addSubview(foodImageView)
+
+        view.addSubview(foodImageView)
         foodImageView.snp.makeConstraints { (make) in
-            make.top.equalTo(scrollView.snp.top)
+            make.top.equalTo(view.snp.top)
             make.left.equalTo(view.snp.left)
             make.right.equalTo(view.snp.right)
             make.height.equalTo(view.snp.height).dividedBy(2.5)
         }
         
-        scrollView.addSubview(darkenView)
+        view.addSubview(darkenView)
         darkenView.backgroundColor = UIColor.black
         darkenView.layer.opacity = 0.5
         darkenView.snp.makeConstraints { (make) in
@@ -90,7 +78,7 @@ class FoodDetailViewController: UIViewController {
             make.height.equalTo(foodImageView.snp.height)
         }
         
-        scrollView.addSubview(foodNameLabel)
+        view.addSubview(foodNameLabel)
         foodNameLabel.textAlignment = NSTextAlignment.center
         foodNameLabel.textColor = UIColor.white
         foodNameLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 32)
@@ -164,15 +152,35 @@ class FoodDetailViewController: UIViewController {
             make.height.equalTo(boneImageView4.snp.width)
         }
         
-        view.addSubview(informationLabel)
+        view.addSubview(scrollView)
+        scrollView.isScrollEnabled = true
+        scrollView.showsVerticalScrollIndicator = true
+        scrollView.isUserInteractionEnabled = true
+        scrollView.backgroundColor = UIColor.white
+        scrollView.snp.makeConstraints { (make) in
+            make.top.equalTo(foodImageView.snp.bottom)
+            make.left.equalTo(view.snp.left)
+            make.right.equalTo(view.snp.right)
+            make.bottom.equalTo(view.snp.bottom)
+        }
+        
+        scrollView.addSubview(contentView)
+        contentView.snp.makeConstraints { (make) in
+            make.width.equalTo(scrollView.snp.width)
+            make.height.equalTo(view.snp.height).dividedBy(1.2)
+            make.top.equalTo(scrollView.snp.top)
+            make.bottom.equalTo(scrollView.snp.bottom)
+        }
+        
+        contentView.addSubview(informationLabel)
         informationLabel.text = "Information"
         informationLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         informationLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(view.snp.centerX)
-            make.top.equalTo(foodImageView.snp.bottom).offset(20)
+            make.top.equalTo(contentView.snp.top).offset(20)
         }
         
-        view.addSubview(seperatorLineImageView)
+        contentView.addSubview(seperatorLineImageView)
         seperatorLineImageView.backgroundColor = UIColor.gray
         seperatorLineImageView.snp.makeConstraints { (make) in
             make.top.equalTo(informationLabel.snp.bottom).offset(10)
@@ -181,7 +189,7 @@ class FoodDetailViewController: UIViewController {
             make.width.equalTo(view.snp.width).offset(-100)
         }
         
-        view.addSubview(safeLabel)
+        contentView.addSubview(safeLabel)
         safeLabel.text = "Is it Safe:"
         safeLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
         safeLabel.snp.makeConstraints { (make) in
@@ -189,7 +197,7 @@ class FoodDetailViewController: UIViewController {
             make.left.equalTo(view.snp.left).offset(20)
         }
         
-        view.addSubview(safeStatusLabel)
+        contentView.addSubview(safeStatusLabel)
         safeStatusLabel.text = "\(foodStatus)"
         safeStatusLabel.font = UIFont(name: "HelveticaNeue", size: 14)
         if foodStatus == "Yes" {
@@ -206,7 +214,7 @@ class FoodDetailViewController: UIViewController {
             make.left.equalTo(safeLabel.snp.right).offset(5)
         }
         
-        view.addSubview(recommendedLabel)
+        contentView.addSubview(recommendedLabel)
         recommendedLabel.text = "Recommended:"
         recommendedLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
         recommendedLabel.snp.makeConstraints { (make) in
@@ -214,7 +222,7 @@ class FoodDetailViewController: UIViewController {
             make.left.equalTo(view.snp.left).offset(20)
         }
         
-        view.addSubview(recommendedStatusLabel)
+        contentView.addSubview(recommendedStatusLabel)
         recommendedStatusLabel.text = "\(foodRecommend)"
         recommendedStatusLabel.font = UIFont(name: "HelveticaNeue", size: 14)
         recommendedStatusLabel.snp.makeConstraints { (make) in
@@ -222,7 +230,7 @@ class FoodDetailViewController: UIViewController {
             make.left.equalTo(recommendedLabel.snp.right).offset(5)
         }
         
-        view.addSubview(suggestionLabel)
+        contentView.addSubview(suggestionLabel)
         suggestionLabel.text = "Suggestion:"
         suggestionLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
         suggestionLabel.snp.makeConstraints { (make) in
@@ -230,7 +238,7 @@ class FoodDetailViewController: UIViewController {
             make.left.equalTo(recommendedLabel.snp.left)
         }
         
-        view.addSubview(suggestionStatusLabel)
+        contentView.addSubview(suggestionStatusLabel)
         suggestionStatusLabel.text = "\(foodSuggestion)"
         suggestionStatusLabel.numberOfLines = 0
         suggestionStatusLabel.lineBreakMode = .byWordWrapping
@@ -241,7 +249,7 @@ class FoodDetailViewController: UIViewController {
             make.width.equalTo(view.snp.width).dividedBy(1.5)
         }
         
-        view.addSubview(foodDescriptionLabel)
+        contentView.addSubview(foodDescriptionLabel)
         foodDescriptionLabel.text = "Description:"
         foodDescriptionLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
         foodDescriptionLabel.snp.makeConstraints { (make) in
@@ -249,7 +257,7 @@ class FoodDetailViewController: UIViewController {
             make.left.equalTo(suggestionLabel.snp.left)
         }
         
-        view.addSubview(foodDescriptionTextView)
+        contentView.addSubview(foodDescriptionTextView)
         foodDescriptionTextView.isEditable = false
         foodDescriptionTextView.font = UIFont(name: "HelveticaNeue", size: 14)
         foodDescriptionTextView.snp.makeConstraints { (make) in

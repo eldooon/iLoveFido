@@ -52,6 +52,7 @@ class ViewController: UIViewController {
         canMyDogEatTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         canMyDogEatTextField.leftViewMode = UITextFieldViewMode.always
         canMyDogEatTextField.textColor = UIColor.flatAlizarinColor()
+        canMyDogEatTextField.activeColor = UIColor.flatAlizarinColor()
         canMyDogEatTextField.placeholder = "Enter the food here"
         canMyDogEatTextField.font = UIFont(name: "HelveticaNeue-Bold", size: 16)
         canMyDogEatTextField.snp.makeConstraints { (make) in
