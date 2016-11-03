@@ -1,4 +1,5 @@
 PODS:
+  - CCTextFieldEffects (0.1.3)
   - Firebase/Auth (3.8.0):
     - Firebase/Core
     - FirebaseAuth (= 3.0.6)
@@ -44,6 +45,7 @@ PODS:
   - SnapKit (3.0.2)
 
 DEPENDENCIES:
+  - CCTextFieldEffects
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -51,6 +53,7 @@ DEPENDENCIES:
   - SnapKit (~> 3.0.2)
 
 SPEC CHECKSUMS:
+  CCTextFieldEffects: e4203c0518bb7156b9d0e64acccc7580d75b0cd4
   Firebase: fdbecadb7b5cbef2774852d4fa659b9daf11f2af
   FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
   FirebaseAuth: 96e9674ff31d6e1f826d53e26aa003a57cab0295
@@ -64,6 +67,6 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: a8e10d8c9fe1ea591aa6991297b10cbfac5207e7
+PODFILE CHECKSUM: 776be7e114283c8fa94bff90b69da0c38dafafa0
 
 COCOAPODS: 1.1.1

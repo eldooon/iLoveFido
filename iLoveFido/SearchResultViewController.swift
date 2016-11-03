@@ -80,7 +80,7 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
         searchResultLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         searchResultLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(view.snp.centerX)
-            make.top.equalTo(view.snp.top).offset(100)
+            make.top.equalTo(view.snp.top).offset(50)
         }
         
         view.addSubview(searchResultTableView)

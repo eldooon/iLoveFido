@@ -9,12 +9,12 @@
 import UIKit
 import SnapKit
 import FirebaseDatabase
-
+import CCTextFieldEffects
 
 class ViewController: UIViewController {
 
     let canMyDogEatLabel = UILabel()
-    let canMyDogEatTextField = UITextField()
+    let canMyDogEatTextField = ChisatoTextField()
     let searchButton = UIButton()
     var shared = FoodDatabase.sharedInstance
 
@@ -22,7 +22,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         createLayout()
-        view.backgroundColor = UIColor.yellow
+        self.title = "iLoveFido"
+        view.backgroundColor = UIColor.flatCloudColor()
         shared.getFoodDatabase()
         
     }
@@ -33,10 +34,10 @@ class ViewController: UIViewController {
     }
     
     func createLayout(){
-        
-        navigationItem.titleView = UIImageView(image: UIImage(named: "paw"))
+
         let navigationBar = navigationController!.navigationBar
-        navigationBar.tintColor = UIColor.black
+        navigationBar.barTintColor = UIColor.flatAlizarinColor()
+        navigationBar.isTranslucent = false
         
         
         view.addSubview(canMyDogEatLabel)
@@ -44,13 +45,13 @@ class ViewController: UIViewController {
         canMyDogEatLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         canMyDogEatLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(view.snp.centerX)
-            make.top.equalTo(view.snp.top).offset(150)
+            make.top.equalTo(view.snp.top).offset(100)
         }
         
         view.addSubview(canMyDogEatTextField)
         canMyDogEatTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         canMyDogEatTextField.leftViewMode = UITextFieldViewMode.always
-        canMyDogEatTextField.backgroundColor = UIColor.white
+        canMyDogEatTextField.textColor = UIColor.flatAlizarinColor()
         canMyDogEatTextField.placeholder = "Enter the food here"
         canMyDogEatTextField.font = UIFont(name: "HelveticaNeue-Bold", size: 16)
         canMyDogEatTextField.snp.makeConstraints { (make) in
@@ -58,17 +59,17 @@ class ViewController: UIViewController {
             make.top.equalTo(canMyDogEatLabel.snp.bottom).offset(20)
             make.left.equalTo(view.snp.left).offset(50)
             make.right.equalTo(view.snp.right).offset(-50)
-            make.height.equalTo(view.snp.height).dividedBy(15)
+            make.height.equalTo(view.snp.height).dividedBy(12)
         }
         
         view.addSubview(searchButton)
-        searchButton.backgroundColor = UIColor.red
+        searchButton.backgroundColor = UIColor.flatAlizarinColor()
         searchButton.setTitle("Search", for: UIControlState())
         searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         searchButton.snp.makeConstraints { (make) in
-            make.top.equalTo(canMyDogEatTextField.snp.bottom).offset(20)
+            make.top.equalTo(canMyDogEatTextField.snp.bottom).offset(40)
             make.centerX.equalTo(canMyDogEatTextField.snp.centerX)
-            make.width.equalTo(canMyDogEatTextField.snp.width).dividedBy(4)
+            make.width.equalTo(canMyDogEatTextField.snp.width).dividedBy(3)
         }
     }
     

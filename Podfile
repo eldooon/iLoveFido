@@ -11,5 +11,6 @@ target 'iLoveFido' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'SDWebImage', '~>3.8'
+  pod 'CCTextFieldEffects'
 
 end

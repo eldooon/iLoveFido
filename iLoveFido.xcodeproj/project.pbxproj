@@ -16,6 +16,7 @@
 		BE4E59B41D9C3EDE00C438B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4E59B31D9C3EDE00C438B3 /* Assets.xcassets */; };
 		BE4E59B71D9C3EDE00C438B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4E59B51D9C3EDE00C438B3 /* LaunchScreen.storyboard */; };
 		BE76CBB61DC2A777009B1361 /* FoodDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE76CBB51DC2A777009B1361 /* FoodDatabase.swift */; };
+		BE76CBBA1DC2BD79009B1361 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE76CBB91DC2BD79009B1361 /* Colors.swift */; };
 		BECAEE661D9C552F003CDC62 /* FoodInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECAEE651D9C552F003CDC62 /* FoodInformation.swift */; };
 		BECAEE6A1D9C5B16003CDC62 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECAEE691D9C5B16003CDC62 /* SearchResultViewController.swift */; };
 		BECAEE6C1D9C62C7003CDC62 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECAEE6B1D9C62C7003CDC62 /* FoodDetailViewController.swift */; };
@@ -36,6 +37,7 @@
 		BE4E59B81D9C3EDE00C438B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE76CBB41DC24FEA009B1361 /* iLoveFido.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iLoveFido.entitlements; sourceTree = "<group>"; };
 		BE76CBB51DC2A777009B1361 /* FoodDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDatabase.swift; sourceTree = "<group>"; };
+		BE76CBB91DC2BD79009B1361 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BECAEE651D9C552F003CDC62 /* FoodInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodInformation.swift; sourceTree = "<group>"; };
 		BECAEE691D9C5B16003CDC62 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		BECAEE6B1D9C62C7003CDC62 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
@@ -91,16 +93,11 @@
 		BE4E59A81D9C3EDE00C438B3 /* iLoveFido */ = {
 			isa = PBXGroup;
 			children = (
+				BE76CBBC1DC39BB1009B1361 /* Resources */,
 				BE76CBB71DC2A877009B1361 /* Model */,
 				BE76CBB81DC2A886009B1361 /* Controller */,
-				BE4E59AD1D9C3EDE00C438B3 /* Main.storyboard */,
-				BE76CBB41DC24FEA009B1361 /* iLoveFido.entitlements */,
-				BE4E59A91D9C3EDE00C438B3 /* AppDelegate.swift */,
+				BE76CBBB1DC39B85009B1361 /* Supporting Files */,
 				BE4E59B31D9C3EDE00C438B3 /* Assets.xcassets */,
-				BE4E59B51D9C3EDE00C438B3 /* LaunchScreen.storyboard */,
-				BE4E59B81D9C3EDE00C438B3 /* Info.plist */,
-				BE066D911DC1637E007494C4 /* GoogleService-Info.plist */,
-				BE4E59B01D9C3EDE00C438B3 /* iLoveFido.xcdatamodeld */,
 			);
 			path = iLoveFido;
 			sourceTree = "<group>";
@@ -110,6 +107,7 @@
 			children = (
 				BECAEE651D9C552F003CDC62 /* FoodInformation.swift */,
 				BE76CBB51DC2A777009B1361 /* FoodDatabase.swift */,
+				BE4E59B01D9C3EDE00C438B3 /* iLoveFido.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -122,6 +120,27 @@
 				BECAEE6B1D9C62C7003CDC62 /* FoodDetailViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		BE76CBBB1DC39B85009B1361 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE76CBB41DC24FEA009B1361 /* iLoveFido.entitlements */,
+				BE4E59B51D9C3EDE00C438B3 /* LaunchScreen.storyboard */,
+				BE4E59B81D9C3EDE00C438B3 /* Info.plist */,
+				BE066D911DC1637E007494C4 /* GoogleService-Info.plist */,
+				BE4E59A91D9C3EDE00C438B3 /* AppDelegate.swift */,
+				BE4E59AD1D9C3EDE00C438B3 /* Main.storyboard */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE76CBBC1DC39BB1009B1361 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BE76CBB91DC2BD79009B1361 /* Colors.swift */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,7 +173,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Eldon;
 				TargetAttributes = {
 					BE4E59A51D9C3EDE00C438B3 = {
@@ -256,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE76CBB61DC2A777009B1361 /* FoodDatabase.swift in Sources */,
+				BE76CBBA1DC2BD79009B1361 /* Colors.swift in Sources */,
 				BE4E59AC1D9C3EDE00C438B3 /* ViewController.swift in Sources */,
 				BE4E59B21D9C3EDE00C438B3 /* iLoveFido.xcdatamodeld in Sources */,
 				BECAEE6A1D9C5B16003CDC62 /* SearchResultViewController.swift in Sources */,

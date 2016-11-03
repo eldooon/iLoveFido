@@ -232,17 +232,20 @@ class FoodDetailViewController: UIViewController {
         
         view.addSubview(suggestionStatusLabel)
         suggestionStatusLabel.text = "\(foodSuggestion)"
+        suggestionStatusLabel.numberOfLines = 0
+        suggestionStatusLabel.lineBreakMode = .byWordWrapping
         suggestionStatusLabel.font = UIFont(name: "HelveticaNeue", size: 14)
         suggestionStatusLabel.snp.makeConstraints { (make) in
             make.top.equalTo(suggestionLabel.snp.top)
             make.left.equalTo(suggestionLabel.snp.right).offset(5)
+            make.width.equalTo(view.snp.width).dividedBy(1.5)
         }
         
         view.addSubview(foodDescriptionLabel)
         foodDescriptionLabel.text = "Description:"
         foodDescriptionLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
         foodDescriptionLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(suggestionLabel.snp.bottom).offset(5)
+            make.top.equalTo(suggestionStatusLabel.snp.bottom).offset(5)
             make.left.equalTo(suggestionLabel.snp.left)
         }
         
@@ -250,7 +253,7 @@ class FoodDetailViewController: UIViewController {
         foodDescriptionTextView.isEditable = false
         foodDescriptionTextView.font = UIFont(name: "HelveticaNeue", size: 14)
         foodDescriptionTextView.snp.makeConstraints { (make) in
-            make.top.equalTo(foodDescriptionLabel.snp.bottom).offset(5)
+            make.top.equalTo(foodDescriptionLabel.snp.bottom)
             make.left.equalTo(foodDescriptionLabel.snp.left)
             make.right.equalTo(view.snp.right).offset(-20)
             make.height.equalTo(view.snp.width) //NEEDS TO BE CHANGED

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CCTextFieldEffects.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,17 +37,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>08B4093CD73949881143356208AD4B67</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>23BA9083ED0D2392A167A8AFA04427FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>72F5CD15362BFD07762AD33A21257C55</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>761BAD2EB09E2953F361ABCF610026D3</key>
+		<key>2C97EE71266FC6F3C292611554E7C502</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>82AC0108122BD110277C02259A80C4AA</key>
+		<key>ACA0CFB9B026D72ADD6954E4C620C371</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D7BA3C1A98BF8AB41BBC50A872D47712</key>
 		<dict>
 			<key>primary</key>
 			<true/>
